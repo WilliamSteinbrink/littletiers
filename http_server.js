@@ -14,7 +14,7 @@ db.defaults({ users: []}).write();
 // configure express to serve static files from public directory
 // ------------------------------------------------------------------
 // YOUR CODE
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 
@@ -52,14 +52,14 @@ app.post('/add', function(req, res) {
         'citystatezip': req.body.citystatezip,
         'latitude': req.body.latitude,
         'longitude': req.body.longitude,
-        'avatar': req.body.avator
+        'avatar': req.body.avatar
     }
     db.get('users').push(user).write();
     console.log(db.get('users').value());
     res.send(db.get('users').value());
 });
 
-
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 // start server
 // -----------------------
