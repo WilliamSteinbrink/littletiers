@@ -14,7 +14,7 @@ db.defaults({ users: []}).write();
 // configure express to serve static files from public directory
 // ------------------------------------------------------------------
 // YOUR CODE
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 
 
