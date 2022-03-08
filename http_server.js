@@ -37,6 +37,13 @@ app.get('/data', function(req, res){
 
 });
 
+app.get("/removeAll", function (req, res) {
+    // YOUR CODE
+    db.get('users').remove().write();
+    // 204 Success No Content
+    res.status(204).send();
+    });
+
 // post route
 app.post('/test', function(req, res) {
     console.log(req.body.username, req.body.password);

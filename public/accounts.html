@@ -66,9 +66,24 @@
                 });
         }
 
-        function removeAll() {
 
-        }
+        function removeAll() {
+        // You code here
+        var url = '/removeAll';
+        superagent
+            .get(url)
+            .end(function (err, res) {
+                if (err) {
+                    console.log(err);
+                    status.innerHTML = "A server error occurred."
+                    return;
+                }
+                var status = document.getElementById('status');
+                status.innerHTML = "All records have been deleted successfully"
+            });
+        
+    }
+
     </script>
 </body>
 </html>
